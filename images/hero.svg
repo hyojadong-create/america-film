@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Dark automotive studio">
+  <defs>
+    <radialGradient id="floor" cx="50%" cy="92%" r="75%">
+      <stop offset="0" stop-color="#23272f"/>
+      <stop offset="55%" stop-color="#121419"/>
+      <stop offset="100%" stop-color="#0a0b0d"/>
+    </radialGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a0b0d"/>
+      <stop offset="100%" stop-color="#15181f"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3aa6ff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#0e2233" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b313b"/>
+      <stop offset="1" stop-color="#0d0f13"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <rect y="430" width="1600" height="470" fill="url(#floor)"/>
+  <!-- light streaks -->
+  <g opacity="0.5">
+    <polygon points="300,0 520,0 360,430 220,430" fill="#1b1f27"/>
+    <polygon points="1080,0 1300,0 1380,430 1240,430" fill="#1b1f27"/>
+  </g>
+  <!-- car silhouette (sleek coupe) -->
+  <g transform="translate(420,360)">
+    <!-- shadow -->
+    <ellipse cx="380" cy="300" rx="430" ry="46" fill="#000" opacity="0.55"/>
+    <!-- body -->
+    <path d="M40 250 C60 180 150 150 250 140 C330 90 470 88 560 140 C660 150 720 185 740 250 L740 280 L40 280 Z" fill="url(#body)"/>
+    <!-- tinted glass cabin -->
+    <path d="M250 142 C330 98 470 96 555 142 L520 196 L290 196 Z" fill="url(#glass)"/>
+    <!-- window split -->
+    <line x1="405" y1="110" x2="405" y2="196" stroke="#0a0b0d" stroke-width="6"/>
+    <!-- wheels -->
+    <circle cx="200" cy="282" r="58" fill="#0a0b0d"/>
+    <circle cx="200" cy="282" r="30" fill="#1b1f27"/>
+    <circle cx="585" cy="282" r="58" fill="#0a0b0d"/>
+    <circle cx="585" cy="282" r="30" fill="#1b1f27"/>
+    <!-- highlight on body -->
+    <path d="M120 232 C260 206 520 206 680 232" stroke="#3a4250" stroke-width="3" fill="none" opacity="0.7"/>
+  </g>
+</svg>

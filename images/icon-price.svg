@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#c9a14a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Wholesale pricing">
+  <path d="M25 5 L42 5 L42 22 L24 40 L6 22 Z"/>
+  <circle cx="34" cy="13" r="2.4" fill="#c9a14a" stroke="none"/>
+  <path d="M22 16 q-5 0 -5 4 t5 4 t5 4 t-5 4" stroke="#3aa6ff"/>
+  <line x1="22" y1="13" x2="22" y2="35" stroke="#3aa6ff"/>
+</svg>

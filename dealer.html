@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Become a Dealer — America Film Wholesale</title>
+  <meta name="description" content="Open a wholesale account with America Film. Trade pricing on window film and PPF for verified tint shops, detailers, and dealerships." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <a class="tb-phone" href="tel:+12135228881">&#9742; (213) 522-8881</a>
+      <a class="tb-email" href="mailto:americafilminc@gmail.com">&#9993; americafilminc@gmail.com</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html"><img src="images/logo-wordmark.svg" alt="America Film" /></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="dealer.html" class="active">Become a Dealer</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="dealer.html" class="btn">Open a Wholesale Account</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="kicker">Wholesale Program</span>
+      <h1>Become a Dealer</h1>
+      <p>Get trade pricing, steady stock, and fast nationwide shipping. Tell us about your shop and we'll set you up with a wholesale account and a current price sheet.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="form-card">
+        <form id="dealerForm" onsubmit="return submitDealer(event)">
+          <div class="form-grid">
+            <div>
+              <label for="biz">Business name *</label>
+              <input id="biz" name="biz" type="text" required />
+            </div>
+            <div>
+              <label for="name">Contact name *</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+            <div>
+              <label for="email">Email *</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+            <div>
+              <label for="phone">Phone *</label>
+              <input id="phone" name="phone" type="tel" required />
+            </div>
+            <div>
+              <label for="type">Business type</label>
+              <select id="type" name="type">
+                <option>Tint shop</option>
+                <option>Auto detailer</option>
+                <option>Car dealership</option>
+                <option>Distributor / reseller</option>
+                <option>Fleet</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="state">State</label>
+              <input id="state" name="state" type="text" placeholder="e.g. CA" />
+            </div>
+            <div class="full">
+              <label for="volume">Estimated monthly volume</label>
+              <select id="volume" name="volume">
+                <option>1&ndash;5 rolls / month</option>
+                <option>6&ndash;15 rolls / month</option>
+                <option>16&ndash;40 rolls / month</option>
+                <option>40+ rolls / month</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="msg">What products are you interested in?</label>
+              <textarea id="msg" name="msg" placeholder="Ceramic / Carbon / PPF, shades, cut sizes, questions..."></textarea>
+            </div>
+          </div>
+          <div style="margin-top:22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
+            <button type="submit" class="btn">Submit Application</button>
+            <span style="color:var(--muted);font-size:.86rem;">Or email <a href="mailto:americafilminc@gmail.com" style="color:var(--accent);">americafilminc@gmail.com</a> &middot; call <a href="tel:+12135228881" style="color:var(--accent);">(213) 522-8881</a></span>
+          </div>
+        </form>
+      </div>
+
+      <div class="cards" style="margin-top:56px;">
+        <div class="card">
+          <img class="ico" src="images/icon-price.svg" alt="" />
+          <h3>Trade Pricing</h3>
+          <p>Verified shops get wholesale rates that leave room for healthy resale margins.</p>
+        </div>
+        <div class="card">
+          <img class="ico" src="images/icon-support.svg" alt="" />
+          <h3>Steady Stock</h3>
+          <p>Consistent inventory of ceramic, carbon, and PPF so you're never waiting on a job.</p>
+        </div>
+        <div class="card">
+          <img class="ico" src="images/icon-heat.svg" alt="" />
+          <h3>Simple Billing</h3>
+          <p>Pay by QuickBooks invoice &mdash; secure card or low-fee bank transfer (ACH).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <img src="images/logo-wordmark.svg" alt="America Film" style="height:30px;" />
+          <p class="about">Pro-quality wholesale window film and paint protection, backed by real support. America Film makes upgrades simple, reliable, and built to last.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <a href="index.html">Home</a>
+          <a href="products.html">Products</a>
+          <a href="dealer.html">Become a Dealer</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a class="foot-phone" href="tel:+12135228881">&#9742; (213) 522-8881</a>
+          <a class="foot-email" href="mailto:americafilminc@gmail.com">&#9993; americafilminc@gmail.com</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>&copy; 2026 America Film. All rights reserved.</span>
+        <span>Wholesale Window Film &amp; PPF &middot; Nationwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function submitDealer(e) {
+      e.preventDefault();
+      var f = e.target;
+      var subject = "Wholesale Account Application - " + (f.biz.value || "New Dealer");
+      var body =
+        "Business name: " + f.biz.value + "\n" +
+        "Contact name: " + f.name.value + "\n" +
+        "Email: " + f.email.value + "\n" +
+        "Phone: " + f.phone.value + "\n" +
+        "Business type: " + f.type.value + "\n" +
+        "State: " + f.state.value + "\n" +
+        "Monthly volume: " + f.volume.value + "\n\n" +
+        "Interested in:\n" + f.msg.value + "\n";
+      window.location.href = "mailto:americafilminc@gmail.com?subject=" +
+        encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      return false;
+    }
+  </script>
+
+</body>
+</html>
