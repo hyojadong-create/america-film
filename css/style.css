@@ -288,3 +288,37 @@ textarea { resize: vertical; min-height: 120px; }
   .stats { grid-template-columns: 1fr; }
   .hero-inner { padding: 80px 0 70px; }
 }
+
+/* ---------- Premium materials top bar ---------- */
+.matbar { background: var(--ink); border-bottom: 1px solid var(--line); }
+.matbar .section-head { margin-bottom: 26px; }
+.matgrp { margin-bottom: 26px; }
+.matgrp:last-child { margin-bottom: 0; }
+.matgrp-title {
+  text-align: center; color: var(--accent); font-weight: 800;
+  font-size: .95rem; letter-spacing: .16em; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.matrow { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+.matcell {
+  flex: 1 1 220px; max-width: 320px;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 24px 26px; text-align: center;
+}
+.matcell.wide { flex-basis: 300px; max-width: 400px; }
+.mc-lab {
+  display: block; color: var(--muted); font-size: .78rem;
+  letter-spacing: .14em; text-transform: uppercase; margin-bottom: 10px;
+}
+.mc-brand {
+  display: block; color: var(--accent); font-weight: 800;
+  font-size: 2rem; line-height: 1.12;
+}
+.mc-brand.sm { font-size: 1.3rem; }
+.mc-co {
+  display: block; color: var(--text); font-weight: 600;
+  font-size: .95rem; margin-top: 4px;
+}
+@media (max-width: 560px) {
+  .mc-brand { font-size: 1.6rem; }
+}
