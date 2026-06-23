@@ -322,3 +322,14 @@ textarea { resize: vertical; min-height: 120px; }
 @media (max-width: 560px) {
   .mc-brand { font-size: 1.6rem; }
 }
+
+/* ---------- Performance highlights ---------- */
+.perf-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.perf {
+  flex: 1 1 180px; max-width: 220px;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 22px 18px; text-align: center;
+}
+.perf b { display: block; color: var(--accent); font-size: 1.2rem; font-weight: 800; margin-bottom: 6px; }
+.perf span { color: var(--muted); font-size: .9rem; line-height: 1.45; display: block; }
+.perf-note { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; font-style: italic; }
