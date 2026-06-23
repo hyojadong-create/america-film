@@ -333,3 +333,13 @@ textarea { resize: vertical; min-height: 120px; }
 .perf b { display: block; color: var(--accent); font-size: 1.2rem; font-weight: 800; margin-bottom: 6px; }
 .perf span { color: var(--muted); font-size: .9rem; line-height: 1.45; display: block; }
 .perf-note { text-align: center; color: var(--muted); font-size: .82rem; margin-top: 24px; font-style: italic; }
+
+/* ---------- Dealer recruitment banner ---------- */
+.recruit-band { background: var(--accent); }
+.recruit-inner { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 32px 0; flex-wrap: wrap; }
+.recruit-copy { flex: 1 1 420px; }
+.recruit-copy .kicker { color: rgba(10,11,13,.65); }
+.recruit-copy h2 { color: #0a0b0d; margin: 4px 0 8px; font-size: 1.7rem; }
+.recruit-copy p { color: rgba(10,11,13,.85); max-width: 680px; margin: 0; }
+.recruit-btn { background: #0a0b0d; color: var(--accent); border: none; white-space: nowrap; }
+.recruit-btn:hover { background: #000; color: var(--accent-hi); }
