@@ -343,3 +343,10 @@ textarea { resize: vertical; min-height: 120px; }
 .recruit-copy p { color: rgba(10,11,13,.85); max-width: 680px; margin: 0; }
 .recruit-btn { background: #0a0b0d; color: var(--accent); border: none; white-space: nowrap; }
 .recruit-btn:hover { background: #000; color: var(--accent-hi); }
+
+/* ---------- Language switch ---------- */
+.lang-switch { display: inline-flex; align-items: center; gap: 8px; margin-left: 6px; font-weight: 700; font-size: .9rem; }
+.lang-switch a { color: var(--muted); }
+.lang-switch a.active { color: var(--accent); }
+.lang-switch a:hover { color: var(--text); }
+.lang-switch .sep { color: var(--line); }
