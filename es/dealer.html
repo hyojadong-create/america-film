@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hágase Distribuidor — America Film Mayoreo</title>
+  <meta name="description" content="Abra una cuenta mayorista con America Film. Precios de mayoreo en lámina de ventana y PPF para talleres de polarizado, detallado y concesionarios verificados." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <a class="tb-phone" href="tel:+12135228881">&#9742; (213) 522-8881</a>
+      <a class="tb-email" href="mailto:americafilminc@gmail.com">&#9993; americafilminc@gmail.com</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html"><img src="../images/logo-wordmark.svg" alt="America Film" /></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Inicio</a>
+        <a href="products.html">Productos</a>
+        <a href="dealer.html" class="active">Hágase Distribuidor</a>
+        <a href="about.html">Nosotros</a>
+        <a href="contact.html">Contacto</a>
+        <a href="dealer.html" class="btn">Abrir cuenta mayorista</a>
+        <span class="lang-switch"><a href="../dealer.html">EN</a><span class="sep">|</span><a href="dealer.html" class="active">ES</a></span>
+      </nav>
+      <button class="nav-toggle" aria-label="Menú" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="kicker">Programa de Mayoreo</span>
+      <h1>Hágase Distribuidor</h1>
+      <p>Obtenga precios de mayoreo, existencias constantes y envíos rápidos a todo el país. Cuéntenos sobre su taller y le configuraremos una cuenta mayorista con una lista de precios actualizada.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="form-card">
+        <form id="dealerForm" onsubmit="return submitDealer(event)">
+          <div class="form-grid">
+            <div>
+              <label for="biz">Nombre del negocio *</label>
+              <input id="biz" name="biz" type="text" required />
+            </div>
+            <div>
+              <label for="name">Nombre de contacto *</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+            <div>
+              <label for="email">Correo electrónico *</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+            <div>
+              <label for="phone">Teléfono *</label>
+              <input id="phone" name="phone" type="tel" required />
+            </div>
+            <div>
+              <label for="type">Tipo de negocio</label>
+              <select id="type" name="type">
+                <option>Taller de polarizado</option>
+                <option>Detallado automotriz</option>
+                <option>Concesionario de autos</option>
+                <option>Distribuidor / revendedor</option>
+                <option>Flota</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div>
+              <label for="state">Estado</label>
+              <input id="state" name="state" type="text" placeholder="p. ej. CA" />
+            </div>
+            <div class="full">
+              <label for="volume">Volumen mensual estimado</label>
+              <select id="volume" name="volume">
+                <option>1&ndash;5 rollos / mes</option>
+                <option>6&ndash;15 rollos / mes</option>
+                <option>16&ndash;40 rollos / mes</option>
+                <option>40+ rollos / mes</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="msg">¿Qué productos le interesan?</label>
+              <textarea id="msg" name="msg" placeholder="Ceramic / Carbon / PPF, tonos, tamaños de corte, preguntas..."></textarea>
+            </div>
+          </div>
+          <div style="margin-top:22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
+            <button type="submit" class="btn">Enviar Solicitud</button>
+            <span style="color:var(--muted);font-size:.86rem;">O escriba a <a href="mailto:americafilminc@gmail.com" style="color:var(--accent);">americafilminc@gmail.com</a> &middot; llame al <a href="tel:+12135228881" style="color:var(--accent);">(213) 522-8881</a></span>
+          </div>
+        </form>
+      </div>
+
+      <div class="cards" style="margin-top:56px;">
+        <div class="card">
+          <img class="ico" src="../images/icon-price.svg" alt="" />
+          <h3>Precios de Mayoreo</h3>
+          <p>Los talleres verificados obtienen tarifas de mayoreo que dejan espacio para márgenes de reventa saludables.</p>
+        </div>
+        <div class="card">
+          <img class="ico" src="../images/icon-support.svg" alt="" />
+          <h3>Existencias Constantes</h3>
+          <p>Inventario constante de cerámica, carbón y PPF para que nunca tenga que esperar por un trabajo.</p>
+        </div>
+        <div class="card">
+          <img class="ico" src="../images/icon-heat.svg" alt="" />
+          <h3>Facturación Sencilla</h3>
+          <p>Pague por factura de QuickBooks &mdash; tarjeta segura o transferencia bancaria de baja comisión (ACH).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <img src="../images/logo-wordmark.svg" alt="America Film" style="height:30px;" />
+          <p class="about">Lámina de ventana y protección de pintura al por mayor de calidad profesional, respaldada por soporte de verdad. America Film hace que las mejoras sean simples, confiables y duraderas.</p>
+        </div>
+        <div>
+          <h4>Explorar</h4>
+          <a href="index.html">Inicio</a>
+          <a href="products.html">Productos</a>
+          <a href="dealer.html">Hágase Distribuidor</a>
+          <a href="about.html">Nosotros</a>
+          <a href="contact.html">Contacto</a>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <a class="foot-phone" href="tel:+12135228881">&#9742; (213) 522-8881</a>
+          <a class="foot-email" href="mailto:americafilminc@gmail.com">&#9993; americafilminc@gmail.com</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>&copy; 2026 America Film. Todos los derechos reservados.</span>
+        <span>Lámina de Ventana y PPF al Por Mayor &middot; A Todo el País</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function submitDealer(e) {
+      e.preventDefault();
+      var f = e.target;
+      var subject = "Solicitud de Cuenta Mayorista - " + (f.biz.value || "Nuevo Distribuidor");
+      var body =
+        "Nombre del negocio: " + f.biz.value + "\n" +
+        "Nombre de contacto: " + f.name.value + "\n" +
+        "Correo electrónico: " + f.email.value + "\n" +
+        "Teléfono: " + f.phone.value + "\n" +
+        "Tipo de negocio: " + f.type.value + "\n" +
+        "Estado: " + f.state.value + "\n" +
+        "Volumen mensual: " + f.volume.value + "\n\n" +
+        "Productos de interés:\n" + f.msg.value + "\n";
+      window.location.href = "mailto:americafilminc@gmail.com?subject=" +
+        encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      return false;
+    }
+  </script>
+
+</body>
+</html>
