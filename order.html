@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Become a Dealer — America Film Wholesale</title>
-  <meta name="description" content="Open a wholesale account with America Film. Trade pricing on window film and PPF for verified tint shops, detailers, and dealerships." />
+  <title>Request a Quote — America Film Wholesale</title>
+  <meta name="description" content="Request a wholesale quote from America Film. Tell us the product, shade, size, and quantity you need and we'll send pricing." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -21,12 +21,12 @@
       <nav class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="products.html">Products</a>
-        <a href="dealer.html" class="active">Become a Dealer</a>
+        <a href="dealer.html">Become a Dealer</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="order.html">Order</a>
+        <a href="order.html" class="active">Order</a>
         <a href="dealer.html" class="btn">Open a Wholesale Account</a>
-        <span class="lang-switch"><a href="dealer.html" class="active">EN</a><span class="sep">|</span><a href="es/dealer.html">ES</a></span>
+        <span class="lang-switch"><a href="order.html" class="active">EN</a><span class="sep">|</span><a href="es/order.html">ES</a></span>
       </nav>
       <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
     </div>
@@ -34,85 +34,80 @@
 
   <section class="page-hero">
     <div class="wrap">
-      <span class="kicker">Wholesale Program</span>
-      <h1>Become a Dealer</h1>
-      <p>Get trade pricing, steady stock, and fast nationwide shipping. Tell us about your shop and we'll set you up with a wholesale account and a current price sheet.</p>
+      <span class="kicker">Order</span>
+      <h1>Request a Quote</h1>
+      <p>Tell us what you need &mdash; product, shade, size, and quantity &mdash; and we'll get back to you with wholesale pricing.</p>
     </div>
   </section>
 
   <section class="block">
     <div class="wrap">
       <div class="form-card">
-        <form id="dealerForm" onsubmit="return submitDealer(event)">
+        <form id="orderForm" onsubmit="return submitOrder(event)">
           <div class="form-grid">
             <div>
-              <label for="biz">Business name *</label>
-              <input id="biz" name="biz" type="text" required />
+              <label for="company">Company Name *</label>
+              <input id="company" name="company" type="text" required />
             </div>
             <div>
-              <label for="name">Contact name *</label>
-              <input id="name" name="name" type="text" required />
+              <label for="contact">Contact Name *</label>
+              <input id="contact" name="contact" type="text" required />
             </div>
             <div>
               <label for="email">Email *</label>
               <input id="email" name="email" type="email" required />
             </div>
             <div>
-              <label for="phone">Phone *</label>
-              <input id="phone" name="phone" type="tel" required />
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" />
             </div>
             <div>
-              <label for="type">Business type</label>
-              <select id="type" name="type">
-                <option>Tint shop</option>
-                <option>Auto detailer</option>
-                <option>Car dealership</option>
-                <option>Distributor / reseller</option>
-                <option>Fleet</option>
+              <label for="product">Product *</label>
+              <select id="product" name="product" required>
+                <option value="" disabled selected>Select a product</option>
+                <option>Axiom Nano Ceramic</option>
+                <option>VISTA Nano Carbon</option>
+                <option>Speeder Performance</option>
+                <option>Paint Protection Film</option>
+              </select>
+            </div>
+            <div>
+              <label for="shade">Color / Shade (VLT)</label>
+              <select id="shade" name="shade">
+                <option value="" disabled selected>Select shade</option>
+                <option>5%</option>
+                <option>20%</option>
+                <option>35%</option>
+                <option>50%</option>
+                <option>70%</option>
+                <option>Clear (PPF)</option>
                 <option>Other</option>
               </select>
             </div>
             <div>
-              <label for="state">State</label>
-              <input id="state" name="state" type="text" placeholder="e.g. CA" />
-            </div>
-            <div class="full">
-              <label for="volume">Estimated monthly volume</label>
-              <select id="volume" name="volume">
-                <option>1&ndash;5 rolls / month</option>
-                <option>6&ndash;15 rolls / month</option>
-                <option>16&ndash;40 rolls / month</option>
-                <option>40+ rolls / month</option>
+              <label for="size">Size</label>
+              <select id="size" name="size">
+                <option value="" disabled selected>Select size</option>
+                <option>1.52 m &times; 30 m (roll)</option>
+                <option>24 in &times; 100 ft</option>
+                <option>Pre-cut / custom</option>
+                <option>Other</option>
               </select>
             </div>
+            <div>
+              <label for="quantity">Quantity</label>
+              <input id="quantity" name="quantity" type="number" min="1" />
+            </div>
             <div class="full">
-              <label for="msg">What products are you interested in?</label>
-              <textarea id="msg" name="msg" placeholder="Ceramic / Carbon / PPF, shades, cut sizes, questions..."></textarea>
+              <label for="notes">Notes</label>
+              <textarea id="notes" name="notes" placeholder="Anything else we should know..."></textarea>
             </div>
           </div>
           <div style="margin-top:22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
-            <button type="submit" class="btn">Submit Application</button>
+            <button type="submit" class="btn">Request Quote</button>
             <span style="color:var(--muted);font-size:.86rem;">Or email <a href="mailto:americafilminc@gmail.com" style="color:var(--accent);">americafilminc@gmail.com</a> &middot; call <a href="tel:+12135228881" style="color:var(--accent);">(213) 522-8881</a></span>
           </div>
         </form>
-      </div>
-
-      <div class="cards" style="margin-top:56px;">
-        <div class="card">
-          <img class="ico" src="images/icon-price.svg" alt="" />
-          <h3>Trade Pricing</h3>
-          <p>Verified shops get wholesale rates that leave room for healthy resale margins.</p>
-        </div>
-        <div class="card">
-          <img class="ico" src="images/icon-support.svg" alt="" />
-          <h3>Steady Stock</h3>
-          <p>Consistent inventory of ceramic, carbon, and PPF so you're never waiting on a job.</p>
-        </div>
-        <div class="card">
-          <img class="ico" src="images/icon-heat.svg" alt="" />
-          <h3>Simple Billing</h3>
-          <p>Pay by QuickBooks invoice &mdash; secure card or low-fee bank transfer (ACH).</p>
-        </div>
       </div>
     </div>
   </section>
@@ -146,19 +141,24 @@
   </footer>
 
   <script>
-    function submitDealer(e) {
+    function submitOrder(e) {
       e.preventDefault();
       var f = e.target;
-      var subject = "Wholesale Account Application - " + (f.biz.value || "New Dealer");
+      if (!f.company.value || !f.contact.value || !f.email.value || !f.product.value) {
+        alert("Please fill in Company Name, Contact Name, Email, and Product.");
+        return false;
+      }
+      var subject = "Quote Request — " + (f.company.value || "New Quote");
       var body =
-        "Business name: " + f.biz.value + "\n" +
-        "Contact name: " + f.name.value + "\n" +
+        "Company: " + f.company.value + "\n" +
+        "Contact: " + f.contact.value + "\n" +
         "Email: " + f.email.value + "\n" +
         "Phone: " + f.phone.value + "\n" +
-        "Business type: " + f.type.value + "\n" +
-        "State: " + f.state.value + "\n" +
-        "Monthly volume: " + f.volume.value + "\n\n" +
-        "Interested in:\n" + f.msg.value + "\n";
+        "Product: " + f.product.value + "\n" +
+        "Shade: " + f.shade.value + "\n" +
+        "Size: " + f.size.value + "\n" +
+        "Quantity: " + f.quantity.value + "\n\n" +
+        "Notes:\n" + f.notes.value + "\n";
       window.location.href = "mailto:americafilminc@gmail.com?subject=" +
         encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
       return false;
