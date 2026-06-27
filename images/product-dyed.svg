@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" width="480" height="360" role="img" aria-label="1 PLY Dyed Film roll">
+  <defs>
+    <linearGradient id="roll" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a414d"/>
+      <stop offset="0.5" stop-color="#20242c"/>
+      <stop offset="1" stop-color="#13161b"/>
+    </linearGradient>
+    <linearGradient id="sheet" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2c323c"/>
+      <stop offset="1" stop-color="#171a20"/>
+    </linearGradient>
+  </defs>
+  <!-- unrolled film sheet -->
+  <polygon points="60,250 300,250 330,150 90,150" fill="url(#sheet)"/>
+  <polygon points="60,250 300,250 300,262 60,262" fill="#0e1116"/>
+  <!-- sheen on sheet -->
+  <polygon points="120,250 150,150 165,150 135,250" fill="#4b5564" opacity="0.35"/>
+  <!-- roll body -->
+  <rect x="300" y="120" width="120" height="150" rx="10" fill="url(#roll)"/>
+  <!-- roll end (cylinder face) -->
+  <ellipse cx="420" cy="195" rx="26" ry="75" fill="#2a2f38"/>
+  <ellipse cx="420" cy="195" rx="26" ry="75" fill="none" stroke="#c9a14a" stroke-width="2" opacity="0.55"/>
+  <ellipse cx="420" cy="195" rx="11" ry="34" fill="#13161b"/>
+  <ellipse cx="300" cy="195" rx="14" ry="75" fill="#1b1f26"/>
+  <!-- gold label band -->
+  <rect x="300" y="178" width="120" height="34" fill="#c9a14a"/>
+  <text x="360" y="201" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#13161b" letter-spacing="0.5">SPEEDER</text>
+  <text x="180" y="318" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#6b7480" letter-spacing="2">1 PLY DYED · BLACK</text>
+</svg>
