@@ -350,3 +350,18 @@ textarea { resize: vertical; min-height: 120px; }
 .lang-switch a.active { color: var(--accent); }
 .lang-switch a:hover { color: var(--text); }
 .lang-switch .sep { color: var(--line); }
+
+
+/* ---------- Showcase background (automotive/tint feel) ---------- */
+.showcase { position: relative; overflow: hidden; }
+.showcase::before {
+  content: ""; position: absolute; inset: 0;
+  background: url('../images/hero.png') center/cover no-repeat;
+  opacity: .12; z-index: 0;
+}
+.showcase::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(14,15,19,.65), rgba(10,11,13,.85));
+  z-index: 0;
+}
+.showcase > .wrap { position: relative; z-index: 1; }
