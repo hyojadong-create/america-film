@@ -146,7 +146,7 @@
     var ORDER_PRICES = {
       "Axiom Nano Ceramic": 90,
       "VISTA Nano Carbon": 60,
-      "Speeder Performance": 40,
+      "Speeder Performance": 120,
       "Paint Protection Film": 495
     };
     function orderPriceLine() {
@@ -156,7 +156,7 @@
       if (!unit) return "";
       var n = parseInt(q && q.value, 10);
       if (n > 1) return "Desde $" + unit + "/rollo × " + n + " = $" + (unit * n) + " · mayoreo";
-      return "Desde $" + unit + " por rollo · mayoreo";
+      return "$" + unit + " por rollo · mayoreo";
     }
     function updateOrderPrice() {
       var pe = document.getElementById("orderPrice");
