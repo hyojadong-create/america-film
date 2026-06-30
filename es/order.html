@@ -70,6 +70,7 @@
                 <option>Speeder Performance</option>
                 <option>Paint Protection Film</option>
               </select>
+              <div id="orderPrice" style="margin-top:10px;color:var(--accent);font-weight:800;font-size:1.2rem;"></div>
             </div>
             <div>
               <label for="shade">Color / Tono (VLT)</label>
@@ -142,6 +143,19 @@
   </footer>
 
   <script>
+    var ORDER_PRICES = {
+      "Axiom Nano Ceramic": "Desde $90",
+      "VISTA Nano Carbon": "Desde $60",
+      "Speeder Performance": "Desde $40",
+      "Paint Protection Film": "Desde $495"
+    };
+    document.addEventListener("DOMContentLoaded", function () {
+      var ps = document.getElementById("product");
+      var pe = document.getElementById("orderPrice");
+      if (ps && pe) ps.addEventListener("change", function () {
+        pe.textContent = ORDER_PRICES[ps.value] ? (ORDER_PRICES[ps.value] + " por rollo · mayoreo") : "";
+      });
+    });
     function submitOrder(e) {
       e.preventDefault();
       var f = e.target;
@@ -156,6 +170,7 @@
         "Correo electrónico: " + f.email.value + "\n" +
         "Teléfono: " + f.phone.value + "\n" +
         "Producto: " + f.product.value + "\n" +
+        "Precio: " + (ORDER_PRICES[f.product.value] || "") + "\n" +
         "Tono: " + f.shade.value + "\n" +
         "Tamaño: " + f.size.value + "\n" +
         "Cantidad: " + f.quantity.value + "\n\n" +
