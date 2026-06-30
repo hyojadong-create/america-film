@@ -54,12 +54,12 @@
               <input id="contact" name="contact" type="text" required />
             </div>
             <div>
-              <label for="email">Email *</label>
-              <input id="email" name="email" type="email" required />
-            </div>
-            <div>
               <label for="phone">Phone Number</label>
               <input id="phone" name="phone" type="tel" />
+            </div>
+            <div>
+              <label for="email">Email *</label>
+              <input id="email" name="email" type="email" required />
             </div>
             <div>
               <label for="product">Product *</label>
@@ -144,17 +144,29 @@
 
   <script>
     var ORDER_PRICES = {
-      "Axiom Nano Ceramic": "From $90",
-      "VISTA Nano Carbon": "From $60",
-      "Speeder Performance": "From $40",
-      "Paint Protection Film": "From $495"
+      "Axiom Nano Ceramic": 90,
+      "VISTA Nano Carbon": 60,
+      "Speeder Performance": 40,
+      "Paint Protection Film": 495
     };
+    function orderPriceLine() {
+      var ps = document.getElementById("product");
+      var q = document.getElementById("quantity");
+      var unit = ps && ORDER_PRICES[ps.value];
+      if (!unit) return "";
+      var n = parseInt(q && q.value, 10);
+      if (n > 1) return "From $" + unit + "/roll × " + n + " = $" + (unit * n) + " · wholesale";
+      return "From $" + unit + " per roll · wholesale";
+    }
+    function updateOrderPrice() {
+      var pe = document.getElementById("orderPrice");
+      if (pe) pe.textContent = orderPriceLine();
+    }
     document.addEventListener("DOMContentLoaded", function () {
       var ps = document.getElementById("product");
-      var pe = document.getElementById("orderPrice");
-      if (ps && pe) ps.addEventListener("change", function () {
-        pe.textContent = ORDER_PRICES[ps.value] ? (ORDER_PRICES[ps.value] + " per roll · wholesale") : "";
-      });
+      var q = document.getElementById("quantity");
+      if (ps) ps.addEventListener("change", updateOrderPrice);
+      if (q) { q.addEventListener("input", updateOrderPrice); q.addEventListener("change", updateOrderPrice); }
     });
     function submitOrder(e) {
       e.preventDefault();
@@ -170,7 +182,7 @@
         "Email: " + f.email.value + "\n" +
         "Phone: " + f.phone.value + "\n" +
         "Product: " + f.product.value + "\n" +
-        "Price: " + (ORDER_PRICES[f.product.value] || "") + "\n" +
+        "Price: " + orderPriceLine() + "\n" +
         "Shade: " + f.shade.value + "\n" +
         "Size: " + f.size.value + "\n" +
         "Quantity: " + f.quantity.value + "\n\n" +
