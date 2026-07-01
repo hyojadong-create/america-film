@@ -73,7 +73,7 @@
               <div id="orderPrice" style="margin-top:10px;color:var(--accent);font-weight:800;font-size:1.2rem;"></div>
             </div>
             <div>
-              <label for="shade">Color / Tono (VLT)</label>
+              <label for="shade" id="shadeLabel">Color / Tono (VLT)</label>
               <select id="shade" name="shade">
                 <option value="" disabled selected>Seleccione tono</option>
                 <option>5%</option>
@@ -162,7 +162,36 @@
       var pe = document.getElementById("orderPrice");
       if (pe) pe.textContent = orderPriceLine();
     }
+    function afGetParam(n){ return new URLSearchParams(location.search).get(n); }
+    function afSetOpts(sel, arr, ph){
+      if(!sel) return;
+      sel.innerHTML="";
+      var o=document.createElement("option"); o.value=""; o.disabled=true; o.selected=true; o.textContent=ph; sel.appendChild(o);
+      arr.forEach(function(v){ var x=document.createElement("option"); x.textContent=v; sel.appendChild(x); });
+    }
+    function afApplyCat(){
+      var cat=(afGetParam("cat")||"").toLowerCase();
+      var p=afGetParam("p");
+      var prod=document.getElementById("product");
+      var shade=document.getElementById("shade");
+      var lab=document.getElementById("shadeLabel");
+      var size=document.getElementById("size");
+      if(cat==="ppf"){
+        afSetOpts(prod,["Paint Protection Film"],"Seleccione un producto");
+        if(lab) lab.textContent="Acabado";
+        afSetOpts(shade,["Brillante","Mate","Otro"],"Seleccione acabado");
+        afSetOpts(size,['rollo 60\" \u00d7 50 ft',"Otro"],"Seleccione tama\u00f1o");
+      } else if(cat==="film"){
+        afSetOpts(prod,["Axiom Nano Ceramic","VISTA Nano Carbon","Speeder Performance"],"Seleccione un producto");
+        if(lab) lab.textContent="Color / Tono (VLT)";
+        afSetOpts(shade,["5%","20%","35%","50%","70%","Otro"],"Seleccione tono");
+        afSetOpts(size,['rollo 20\" + 40\"','rollo 24\" + 36\"','rollo 60\"',"Pre-corte / personalizado","Otro"],"Seleccione tama\u00f1o");
+      }
+      if(p && prod){ for(var i=0;i<prod.options.length;i++){ if(prod.options[i].textContent===p){ prod.selectedIndex=i; break; } } }
+      if(typeof updateOrderPrice==="function") updateOrderPrice();
+    }
     document.addEventListener("DOMContentLoaded", function () {
+      afApplyCat();
       var ps = document.getElementById("product");
       var q = document.getElementById("quantity");
       if (ps) ps.addEventListener("change", updateOrderPrice);
