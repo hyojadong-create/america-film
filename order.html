@@ -155,8 +155,8 @@
       var unit = ps && ORDER_PRICES[ps.value];
       if (!unit) return "";
       var n = parseInt(q && q.value, 10);
-      if (n > 1) return "$" + unit + "/roll × " + n + " = $" + (unit * n) + " · wholesale";
-      return "$" + unit + " per roll · wholesale";
+      if (n > 1) return "$" + unit + "/60\" roll × " + n + " = $" + (unit * n) + " · wholesale";
+      return "$" + unit + " per 60\" roll · wholesale";
     }
     function updateOrderPrice() {
       var pe = document.getElementById("orderPrice");
