@@ -155,8 +155,8 @@
       var unit = ps && ORDER_PRICES[ps.value];
       if (!unit) return "";
       var n = parseInt(q && q.value, 10);
-      if (n > 1) return "Desde $" + unit + "/rollo × " + n + " = $" + (unit * n) + " · mayoreo";
-      return "$" + unit + " por rollo · mayoreo";
+      if (n > 1) return "$" + unit + "/rollo 60\" × " + n + " = $" + (unit * n) + " · mayoreo";
+      return "$" + unit + " por rollo 60\" · mayoreo";
     }
     function updateOrderPrice() {
       var pe = document.getElementById("orderPrice");
