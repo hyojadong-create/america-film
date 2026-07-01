@@ -73,7 +73,7 @@
               <div id="orderPrice" style="margin-top:10px;color:var(--accent);font-weight:800;font-size:1.2rem;"></div>
             </div>
             <div>
-              <label for="shade">Color / Shade (VLT)</label>
+              <label for="shade" id="shadeLabel">Color / Shade (VLT)</label>
               <select id="shade" name="shade">
                 <option value="" disabled selected>Select shade</option>
                 <option>5%</option>
@@ -162,7 +162,36 @@
       var pe = document.getElementById("orderPrice");
       if (pe) pe.textContent = orderPriceLine();
     }
+    function afGetParam(n){ return new URLSearchParams(location.search).get(n); }
+    function afSetOpts(sel, arr, ph){
+      if(!sel) return;
+      sel.innerHTML="";
+      var o=document.createElement("option"); o.value=""; o.disabled=true; o.selected=true; o.textContent=ph; sel.appendChild(o);
+      arr.forEach(function(v){ var x=document.createElement("option"); x.textContent=v; sel.appendChild(x); });
+    }
+    function afApplyCat(){
+      var cat=(afGetParam("cat")||"").toLowerCase();
+      var p=afGetParam("p");
+      var prod=document.getElementById("product");
+      var shade=document.getElementById("shade");
+      var lab=document.getElementById("shadeLabel");
+      var size=document.getElementById("size");
+      if(cat==="ppf"){
+        afSetOpts(prod,["Paint Protection Film"],"Select a product");
+        if(lab) lab.textContent="Finish";
+        afSetOpts(shade,["Gloss","Matte","Other"],"Select finish");
+        afSetOpts(size,['60\" \u00d7 50 ft roll',"Other"],"Select size");
+      } else if(cat==="film"){
+        afSetOpts(prod,["Axiom Nano Ceramic","VISTA Nano Carbon","Speeder Performance"],"Select a product");
+        if(lab) lab.textContent="Color / Shade (VLT)";
+        afSetOpts(shade,["5%","20%","35%","50%","70%","Other"],"Select shade");
+        afSetOpts(size,['20\" + 40\" roll','24\" + 36\" roll','60\" roll',"Pre-cut / custom","Other"],"Select size");
+      }
+      if(p && prod){ for(var i=0;i<prod.options.length;i++){ if(prod.options[i].textContent===p){ prod.selectedIndex=i; break; } } }
+      if(typeof updateOrderPrice==="function") updateOrderPrice();
+    }
     document.addEventListener("DOMContentLoaded", function () {
+      afApplyCat();
       var ps = document.getElementById("product");
       var q = document.getElementById("quantity");
       if (ps) ps.addEventListener("change", updateOrderPrice);
