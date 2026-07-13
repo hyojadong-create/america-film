@@ -45,12 +45,12 @@
 
           <div class="pd-label">Tonos disponibles (VLT)</div>
           <div class="spec-row">
-            <span class="chip">5%</span><span class="chip">20%</span><span class="chip">35%</span><span class="chip">50%</span>
+            <span class="chip shade-chip">5%</span><span class="chip shade-chip">20%</span><span class="chip shade-chip">35%</span><span class="chip shade-chip">50%</span>
           </div>
 
           <div class="pd-label">Tamaños de corte</div>
           <div class="spec-row">
-            <span class="chip">rollo 20" + 40"</span><span class="chip">rollo 24" + 36"</span><span class="chip">rollo 60"</span>
+            <span class="chip size-chip">rollo 20" + 40"</span><span class="chip size-chip">rollo 24" + 36"</span><span class="chip size-chip">rollo 60"</span>
           </div>
 
           <ul class="pd-list">
@@ -141,5 +141,23 @@
     </div>
   </footer>
 
+
+  <script>
+  (function(){
+    var PROD='VISTA Nano Carbon', CAT='film', shadeSel=null;
+    function q(s){return Array.prototype.slice.call(document.querySelectorAll(s));}
+    q(".shade-chip").forEach(function(c){ c.addEventListener("click",function(){
+      q(".shade-chip").forEach(function(x){x.classList.remove("chip-sel");}); c.classList.add("chip-sel");
+      shadeSel=c.getAttribute("data-v")||c.textContent.trim();
+    });});
+    q(".size-chip").forEach(function(c){ c.addEventListener("click",function(){
+      var size=c.getAttribute("data-v")||c.textContent.trim();
+      var u="order.html?cat="+CAT+"&p="+encodeURIComponent(PROD);
+      if(shadeSel) u+="&shade="+encodeURIComponent(shadeSel);
+      u+="&size="+encodeURIComponent(size);
+      location.href=u;
+    });});
+  })();
+  </script>
 </body>
 </html>

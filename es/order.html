@@ -188,6 +188,8 @@
         afSetOpts(size,['rollo 20\" + 40\"','rollo 24\" + 36\"','rollo 60\"',"Pre-corte / personalizado","Otro"],"Seleccione tama\u00f1o");
       }
       if(p && prod){ for(var i=0;i<prod.options.length;i++){ if(prod.options[i].textContent===p){ prod.selectedIndex=i; break; } } }
+      var sh=afGetParam("shade"); if(sh && shade){ for(var j=0;j<shade.options.length;j++){ if(shade.options[j].textContent===sh){ shade.selectedIndex=j; break; } } }
+      var sz=afGetParam("size"); if(sz && size){ for(var k=0;k<size.options.length;k++){ if(size.options[k].textContent===sz){ size.selectedIndex=k; break; } } }
       if(typeof updateOrderPrice==="function") updateOrderPrice();
     }
     document.addEventListener("DOMContentLoaded", function () {
