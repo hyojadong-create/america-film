@@ -365,3 +365,7 @@ textarea { resize: vertical; min-height: 120px; }
   z-index: 0;
 }
 .showcase > .wrap { position: relative; z-index: 1; }
+
+.chip.shade-chip, .chip.size-chip { cursor:pointer; transition:.15s ease; }
+.chip.shade-chip:hover, .chip.size-chip:hover { border-color: var(--accent); color:#fff; }
+.chip.chip-sel { background: var(--accent); color:#0a0b0d; border-color: var(--accent); font-weight:700; }
