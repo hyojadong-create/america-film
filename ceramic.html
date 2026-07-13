@@ -45,12 +45,12 @@
 
           <div class="pd-label">Available shades (VLT)</div>
           <div class="spec-row">
-            <span class="chip">5%</span><span class="chip">20%</span><span class="chip">30%</span><span class="chip">50%</span><span class="chip">70%</span>
+            <span class="chip shade-chip">5%</span><span class="chip shade-chip">20%</span><span class="chip shade-chip">30%</span><span class="chip shade-chip">50%</span><span class="chip shade-chip">70%</span>
           </div>
 
           <div class="pd-label">Cut sizes</div>
           <div class="spec-row">
-            <span class="chip">20" + 40" roll</span><span class="chip">24" + 36" roll</span><span class="chip">60" roll</span>
+            <span class="chip size-chip">20" + 40" roll</span><span class="chip size-chip">24" + 36" roll</span><span class="chip size-chip">60" roll</span>
           </div>
 
           <ul class="pd-list">
@@ -142,5 +142,23 @@
     </div>
   </footer>
 
+
+  <script>
+  (function(){
+    var PROD='Axiom Nano Ceramic', CAT='film', shadeSel=null;
+    function q(s){return Array.prototype.slice.call(document.querySelectorAll(s));}
+    q(".shade-chip").forEach(function(c){ c.addEventListener("click",function(){
+      q(".shade-chip").forEach(function(x){x.classList.remove("chip-sel");}); c.classList.add("chip-sel");
+      shadeSel=c.getAttribute("data-v")||c.textContent.trim();
+    });});
+    q(".size-chip").forEach(function(c){ c.addEventListener("click",function(){
+      var size=c.getAttribute("data-v")||c.textContent.trim();
+      var u="order.html?cat="+CAT+"&p="+encodeURIComponent(PROD);
+      if(shadeSel) u+="&shade="+encodeURIComponent(shadeSel);
+      u+="&size="+encodeURIComponent(size);
+      location.href=u;
+    });});
+  })();
+  </script>
 </body>
 </html>

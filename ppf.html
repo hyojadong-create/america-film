@@ -56,7 +56,7 @@
             <span class="chip">Base: Bayer (Germany)</span><span class="chip">Glue: Ashland</span><span class="chip">7.5 Mil</span>
           </div>
           <div class="spec-row">
-            <span class="chip">Gloss</span><span class="chip">Matte</span><span class="chip">60&quot; &times; 50 ft</span><span class="chip">8 Years</span>
+            <span class="chip shade-chip">Gloss</span><span class="chip shade-chip">Matte</span><span class="chip size-chip" data-v="60&quot; &times; 50 ft roll">60&quot; &times; 50 ft</span><span class="chip">8 Years</span>
           </div>
           <div class="spec-row">
             <span class="chip">Hydrophobic</span><span class="chip">Hot self-healing</span><span class="chip">Anti-yellowing</span><span class="chip">Anti-fouling</span>
@@ -109,5 +109,23 @@
     </div>
   </footer>
 
+
+  <script>
+  (function(){
+    var PROD='Paint Protection Film', CAT='ppf', shadeSel=null;
+    function q(s){return Array.prototype.slice.call(document.querySelectorAll(s));}
+    q(".shade-chip").forEach(function(c){ c.addEventListener("click",function(){
+      q(".shade-chip").forEach(function(x){x.classList.remove("chip-sel");}); c.classList.add("chip-sel");
+      shadeSel=c.getAttribute("data-v")||c.textContent.trim();
+    });});
+    q(".size-chip").forEach(function(c){ c.addEventListener("click",function(){
+      var size=c.getAttribute("data-v")||c.textContent.trim();
+      var u="order.html?cat="+CAT+"&p="+encodeURIComponent(PROD);
+      if(shadeSel) u+="&shade="+encodeURIComponent(shadeSel);
+      u+="&size="+encodeURIComponent(size);
+      location.href=u;
+    });});
+  })();
+  </script>
 </body>
 </html>

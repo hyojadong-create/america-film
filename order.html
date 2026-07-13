@@ -188,6 +188,8 @@
         afSetOpts(size,['20\" + 40\" roll','24\" + 36\" roll','60\" roll',"Pre-cut / custom","Other"],"Select size");
       }
       if(p && prod){ for(var i=0;i<prod.options.length;i++){ if(prod.options[i].textContent===p){ prod.selectedIndex=i; break; } } }
+      var sh=afGetParam("shade"); if(sh && shade){ for(var j=0;j<shade.options.length;j++){ if(shade.options[j].textContent===sh){ shade.selectedIndex=j; break; } } }
+      var sz=afGetParam("size"); if(sz && size){ for(var k=0;k<size.options.length;k++){ if(size.options[k].textContent===sz){ size.selectedIndex=k; break; } } }
       if(typeof updateOrderPrice==="function") updateOrderPrice();
     }
     document.addEventListener("DOMContentLoaded", function () {
