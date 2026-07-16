@@ -44,14 +44,18 @@
     <div class="wrap">
       <div class="form-card">
         <form id="dealerForm" onsubmit="return submitDealer(event)">
+          <input type="hidden" name="_subject" value="Wholesale Account Application - America Film" />
+          <input type="hidden" name="_cc" value="americafilminc@gmail.com" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
           <div class="form-grid">
             <div>
               <label for="biz">Business name *</label>
-              <input id="biz" name="biz" type="text" required />
+              <input id="biz" name="Business Name" type="text" required />
             </div>
             <div>
               <label for="name">Contact name *</label>
-              <input id="name" name="name" type="text" required />
+              <input id="name" name="Contact Name" type="text" required />
             </div>
             <div>
               <label for="email">Email *</label>
@@ -59,11 +63,11 @@
             </div>
             <div>
               <label for="phone">Phone *</label>
-              <input id="phone" name="phone" type="tel" required />
+              <input id="phone" name="Phone" type="tel" required />
             </div>
             <div>
               <label for="type">Business type</label>
-              <select id="type" name="type">
+              <select id="type" name="Business Type">
                 <option>Tint shop</option>
                 <option>Auto detailer</option>
                 <option>Car dealership</option>
@@ -74,11 +78,11 @@
             </div>
             <div>
               <label for="state">State</label>
-              <input id="state" name="state" type="text" placeholder="e.g. CA" />
+              <input id="state" name="State" type="text" placeholder="e.g. CA" />
             </div>
             <div class="full">
               <label for="volume">Estimated monthly volume</label>
-              <select id="volume" name="volume">
+              <select id="volume" name="Monthly Volume">
                 <option>1&ndash;5 rolls / month</option>
                 <option>6&ndash;15 rolls / month</option>
                 <option>16&ndash;40 rolls / month</option>
@@ -87,7 +91,7 @@
             </div>
             <div class="full">
               <label for="msg">What products are you interested in?</label>
-              <textarea id="msg" name="msg" placeholder="Ceramic / Carbon / PPF, shades, cut sizes, questions..."></textarea>
+              <textarea id="msg" name="Interested In" placeholder="Ceramic / Carbon / PPF, shades, cut sizes, questions..."></textarea>
             </div>
           </div>
           <div style="margin-top:22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
@@ -95,6 +99,10 @@
             <span style="color:var(--muted);font-size:.86rem;">Or email <a href="mailto:americafilminc@gmail.com" style="color:var(--accent);">americafilminc@gmail.com</a> &middot; call <a href="tel:+12135228881" style="color:var(--accent);">(213) 522-8881</a></span>
           </div>
         </form>
+        <div id="dealerThanks" style="display:none;text-align:center;padding:28px 10px;">
+          <h2 style="color:var(--accent);margin:0 0 10px;">&#10003; Application received!</h2>
+          <p style="color:var(--muted);max-width:520px;margin:0 auto;">Thanks for applying to America Film wholesale. We&rsquo;ll review your info and reach out shortly with trade pricing and a current price sheet. Questions? Email <a href="mailto:americafilminc@gmail.com" style="color:var(--accent);">americafilminc@gmail.com</a> or call <a href="tel:+12135228881" style="color:var(--accent);">(213) 522-8881</a>.</p>
+        </div>
       </div>
 
       <div class="cards" style="margin-top:56px;">
@@ -146,21 +154,30 @@
   </footer>
 
   <script>
-    function submitDealer(e) {
+    async function submitDealer(e) {
       e.preventDefault();
       var f = e.target;
-      var subject = "Wholesale Account Application - " + (f.biz.value || "New Dealer");
-      var body =
-        "Business name: " + f.biz.value + "\n" +
-        "Contact name: " + f.name.value + "\n" +
-        "Email: " + f.email.value + "\n" +
-        "Phone: " + f.phone.value + "\n" +
-        "Business type: " + f.type.value + "\n" +
-        "State: " + f.state.value + "\n" +
-        "Monthly volume: " + f.volume.value + "\n\n" +
-        "Interested in:\n" + f.msg.value + "\n";
-      window.location.href = "mailto:americafilminc@gmail.com?subject=" +
-        encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      var btn = f.querySelector('button[type=submit]');
+      var original = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Submitting…';
+      try {
+        var res = await fetch('https://formsubmit.co/ajax/hyojadong@gmail.com', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(f)
+        });
+        var data = await res.json().catch(function(){ return {}; });
+        if (res.ok && (data.success === 'true' || data.success === true)) {
+          f.style.display = 'none';
+          document.getElementById('dealerThanks').style.display = 'block';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          throw new Error('submit failed');
+        }
+      } catch (err) {
+        btn.disabled = false; btn.textContent = original;
+        alert('Sorry, something went wrong. Please email americafilminc@gmail.com or call (213) 522-8881.');
+      }
       return false;
     }
   </script>
