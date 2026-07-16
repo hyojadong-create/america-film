@@ -44,14 +44,18 @@
     <div class="wrap">
       <div class="form-card">
         <form id="dealerForm" onsubmit="return submitDealer(event)">
+          <input type="hidden" name="_subject" value="Solicitud de Cuenta Mayorista - America Film" />
+          <input type="hidden" name="_cc" value="americafilminc@gmail.com" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
           <div class="form-grid">
             <div>
               <label for="biz">Nombre del negocio *</label>
-              <input id="biz" name="biz" type="text" required />
+              <input id="biz" name="Nombre del negocio" type="text" required />
             </div>
             <div>
               <label for="name">Nombre de contacto *</label>
-              <input id="name" name="name" type="text" required />
+              <input id="name" name="Nombre de contacto" type="text" required />
             </div>
             <div>
               <label for="email">Correo electrónico *</label>
@@ -59,11 +63,11 @@
             </div>
             <div>
               <label for="phone">Teléfono *</label>
-              <input id="phone" name="phone" type="tel" required />
+              <input id="phone" name="Teléfono" type="tel" required />
             </div>
             <div>
               <label for="type">Tipo de negocio</label>
-              <select id="type" name="type">
+              <select id="type" name="Tipo de negocio">
                 <option>Taller de polarizado</option>
                 <option>Detallado automotriz</option>
                 <option>Concesionario de autos</option>
@@ -74,11 +78,11 @@
             </div>
             <div>
               <label for="state">Estado</label>
-              <input id="state" name="state" type="text" placeholder="p. ej. CA" />
+              <input id="state" name="Estado" type="text" placeholder="p. ej. CA" />
             </div>
             <div class="full">
               <label for="volume">Volumen mensual estimado</label>
-              <select id="volume" name="volume">
+              <select id="volume" name="Volumen mensual">
                 <option>1&ndash;5 rollos / mes</option>
                 <option>6&ndash;15 rollos / mes</option>
                 <option>16&ndash;40 rollos / mes</option>
@@ -87,7 +91,7 @@
             </div>
             <div class="full">
               <label for="msg">¿Qué productos le interesan?</label>
-              <textarea id="msg" name="msg" placeholder="Ceramic / Carbon / PPF, tonos, tamaños de corte, preguntas..."></textarea>
+              <textarea id="msg" name="Productos de interés" placeholder="Ceramic / Carbon / PPF, tonos, tamaños de corte, preguntas..."></textarea>
             </div>
           </div>
           <div style="margin-top:22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
@@ -95,6 +99,10 @@
             <span style="color:var(--muted);font-size:.86rem;">O escriba a <a href="mailto:americafilminc@gmail.com" style="color:var(--accent);">americafilminc@gmail.com</a> &middot; llame al <a href="tel:+12135228881" style="color:var(--accent);">(213) 522-8881</a></span>
           </div>
         </form>
+        <div id="dealerThanks" style="display:none;text-align:center;padding:28px 10px;">
+          <h2 style="color:var(--accent);margin:0 0 10px;">&#10003; &iexcl;Solicitud recibida!</h2>
+          <p style="color:var(--muted);max-width:520px;margin:0 auto;">Gracias por solicitar una cuenta mayorista con America Film. Revisaremos su informaci&oacute;n y nos comunicaremos pronto con precios de mayoreo y una lista de precios actualizada. &iquest;Preguntas? Escriba a <a href="mailto:americafilminc@gmail.com" style="color:var(--accent);">americafilminc@gmail.com</a> o llame al <a href="tel:+12135228881" style="color:var(--accent);">(213) 522-8881</a>.</p>
+        </div>
       </div>
 
       <div class="cards" style="margin-top:56px;">
@@ -146,21 +154,30 @@
   </footer>
 
   <script>
-    function submitDealer(e) {
+    async function submitDealer(e) {
       e.preventDefault();
       var f = e.target;
-      var subject = "Solicitud de Cuenta Mayorista - " + (f.biz.value || "Nuevo Distribuidor");
-      var body =
-        "Nombre del negocio: " + f.biz.value + "\n" +
-        "Nombre de contacto: " + f.name.value + "\n" +
-        "Correo electrónico: " + f.email.value + "\n" +
-        "Teléfono: " + f.phone.value + "\n" +
-        "Tipo de negocio: " + f.type.value + "\n" +
-        "Estado: " + f.state.value + "\n" +
-        "Volumen mensual: " + f.volume.value + "\n\n" +
-        "Productos de interés:\n" + f.msg.value + "\n";
-      window.location.href = "mailto:americafilminc@gmail.com?subject=" +
-        encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      var btn = f.querySelector('button[type=submit]');
+      var original = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Enviando…';
+      try {
+        var res = await fetch('https://formsubmit.co/ajax/hyojadong@gmail.com', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(f)
+        });
+        var data = await res.json().catch(function(){ return {}; });
+        if (res.ok && (data.success === 'true' || data.success === true)) {
+          f.style.display = 'none';
+          document.getElementById('dealerThanks').style.display = 'block';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          throw new Error('submit failed');
+        }
+      } catch (err) {
+        btn.disabled = false; btn.textContent = original;
+        alert('Lo sentimos, ocurrió un error. Escriba a americafilminc@gmail.com o llame al (213) 522-8881.');
+      }
       return false;
     }
   </script>
